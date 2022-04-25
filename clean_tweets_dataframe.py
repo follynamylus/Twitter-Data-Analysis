@@ -1,4 +1,5 @@
 import pandas as pd
+from textblob import TextBlob
 class Clean_Tweets:
     """
     The PEP8 Standard AMAZING!!!
@@ -57,6 +58,6 @@ class Clean_Tweets:
         remove non english tweets from lang
         """
         
-        df = ----
+        df = df.strings.str.replace('[^a-zA-Z0-9]', '')
         
         return df
