@@ -2,7 +2,7 @@ import unittest
 import pandas as pd
 import sys, os
  
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname("extract_dataframe"))))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname())))
 
 from extract_dataframe import read_json
 from extract_dataframe import TweetDfExtractor

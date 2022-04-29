@@ -30,12 +30,21 @@ class Clean_Tweets:
         """
         convert column to datetime
         """
-        df['created_at_date_time'] = pd.to_datetime(df['created_at'])
-
-
-        df['created_at'] = df['created_at_date_time'].dt.date
         
-        df = df[df['created_at'] >= '2020-12-31' ]
+        
+        df['created_at'] = pd.to_datetime(df['created_at'])
+        
+        df['created_at'] = pd.to_datetime(df['created_at'])
+        
+        df.index = df['created_at']
+        
+        df = df['2020-12-31' :]
+        
+        df.drop('created_at', axis = 1, inplace = True)
+        
+        df = df.reset_index()
+        
+        
         
         return df
     
@@ -47,7 +56,7 @@ class Clean_Tweets:
         df['polarity'] = df['polarity'].apply(pd.to_numeric)
         df['subjectivity'] = df['subjectivity'].apply(pd.to_numeric)
         df['retweet_count'] = df['retweet_count'].apply(pd.to_numeric)
-        df['favourite_count'] = df['favourite_count'].apply(pd.to_numeric)
+        df['favorite_count'] = df['favorite_count'].apply(pd.to_numeric)
         
         return df
     
